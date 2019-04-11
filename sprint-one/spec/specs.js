@@ -41,6 +41,7 @@ define([
       it('reports a size of 2 after adding two items', function() {
         stack.push('a');
         stack.push('b');
+        // console.log(stack.size(),'this is the second stack size after push');
         expect(stack.size()).to.equal(2);
       });
 
@@ -52,6 +53,7 @@ define([
         stack.push('a');
         stack.push('b');
         stack.pop();
+        // console.log(stack.size(),'this is stack size after push');
         expect(stack.size()).to.equal(1);
       });
 
@@ -59,6 +61,7 @@ define([
         stack.push('a');
         stack.pop();
         stack.pop();
+        // console.log(stack.size(),'this is the second stack size after push');
         expect(stack.size()).to.equal(0);
       });
 

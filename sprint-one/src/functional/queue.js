@@ -21,16 +21,19 @@ var Queue = function() {
   someInstance.dequeue = function() {
   // Remove and return the string at the front of the queue
 
-    var incrementer =0;
-    var returnValue = someInstance['0']; 
-    while(incrementer < latestKey){
-        someInstance[incrementer] = someInstance[incrementer+1];
-        incrementer++;
+    if(latestKey > 0){
+      var incrementer = 0;
+      var returnValue = someInstance['0']; 
+      while(incrementer < latestKey){
+          someInstance[incrementer] = someInstance[incrementer+1];
+          incrementer++;
+      }
+      delete someInstance[latestKey-1];
+      
+      latestKey--;
+      return returnValue;
     }
-    delete someInstance[latestKey-1];
-    latestKey--;
-    return returnValue;
-  
+
   };
 
   someInstance.size = function() {
