@@ -14,13 +14,33 @@ var Tree = function(value) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
-
-
+  // method, takes any value, sets that as the target of a node, and adds that node as a child of the tree
+  var child = Tree(value);
+  this.children.push(child); 
 
 };
 
 treeMethods.contains = function(target) {
-};
+  // method, takes any input and returns a boolean reflecting whether it can be found as the value of the target node or any  descendant node
+ 
+//   var ultimateTruth = (this.value === target)|| this.children[i]; 
+
+
+  if(this.value === target){
+    return true;
+
+  } else {
+
+    for(var i = 0; i < this.children.length; i++){
+      if(this.children[i].contains(target)){
+          return true;
+      }    
+    }
+  }
+  return false;
+ };
+
+var tree = Tree(0);
 
 
 
