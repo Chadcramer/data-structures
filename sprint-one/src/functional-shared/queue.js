@@ -24,11 +24,19 @@ this.counter ++;
 
 queueMethods.dequeue = function(){
 //Remove and return the string at the front of the queue
+// {0: '1st value', 1: '2nd value', 2: '3rd value'}
+// {0: '2nd value', 1: '3rd value'}
 if(this.counter > 0){
-var returnValue = this[0];
-delete this[0];
+  var returnValue = this[0];
+  var idx = 0;
+  while(idx < this.counter){
+    this[idx] = this[idx + 1];
+    idx++;
+    }
+  delete this[this.counter];
+  this.counter--;
 
-return returnValue; 
+  return returnValue; 
 }
 
 };
